@@ -1,19 +1,25 @@
 import React from 'react';
 import BannerSection from '../BannerSection/BannerSection';
+import SpacialDiscount from '../SpacialDiscount/SpacialDiscount';
 
 const Home = () => {
     return (
-        <div>
+        <div >
+            {/* Banner items and categories in this  */}
             <div>
             <div className='flex'>
-                <div className='flex-1 h-[50vh]'>
+                <div className='flex-1 '>
                     <BannerSection></BannerSection>
                 </div>
-                <div className='flex-none w-72'>
+                <div className='flex-1 w-72'>
                     hello
                 </div>
             </div>
             </div>
+            
+            {/* Extra section  */}
+            <SpacialDiscount></SpacialDiscount>
+
 
         </div>
     );

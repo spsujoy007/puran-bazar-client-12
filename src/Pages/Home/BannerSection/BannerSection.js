@@ -5,7 +5,7 @@ import banner3 from '../../../assets/BannerImages/banner3.png';
 
 const BannerSection = () => {
   return (
-    <div className="carousel">
+    <div className="carousel rounded-xl">
 
     {/* slide 1 ---------------- */}
   <div id="slide1" className="carousel-item relative w-full">
