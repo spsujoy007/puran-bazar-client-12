@@ -7,7 +7,7 @@ const Home = () => {
         <div >
             {/* Banner items and categories in this  */}
             <div>
-            <div className='flex'>
+            <div className='md:flex'>
                 <div className='flex-1 '>
                     <BannerSection></BannerSection>
                 </div>
