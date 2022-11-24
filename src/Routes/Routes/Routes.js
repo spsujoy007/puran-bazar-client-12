@@ -3,6 +3,7 @@ import Main from "../../Layout/Main";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
+import Login from "../../Pages/Login/Login";
 
 export const routes = createBrowserRouter([
     {
@@ -10,6 +11,7 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
+            //useLoader in this home path: important!*************************
             {
                 path: '/',
                 element: <Home></Home>
@@ -17,7 +19,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
-            }
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
         ]
     }
 ])
