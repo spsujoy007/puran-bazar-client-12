@@ -15,12 +15,16 @@ const AllPhoneSec = () => {
 
     return (
         <div>
+            <h1 className='text-2xl mt-5'>All Used Phones</h1>
+            <p className='text-xl'>Chose your own choise</p>
+            <div className='md:grid grid-cols-2 gap-10'>
             {
                 phones.map(phone => <PhoneCard
                     key={phone._id}
                     phone={phone}
                 ></PhoneCard>)
             }
+        </div>
         </div>
     );
 };
