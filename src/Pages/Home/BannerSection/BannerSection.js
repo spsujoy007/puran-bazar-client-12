@@ -2,13 +2,14 @@ import React from "react";
 import banner1 from '../../../assets/BannerImages/banner1.png';
 import banner2 from '../../../assets/BannerImages/banner2.png';
 import banner3 from '../../../assets/BannerImages/banner3.png';
+import './BannerSection.css'
 
 const BannerSection = () => {
   return (
-    <div className="carousel rounded-xl">
+    <div className="carousel rounded-xl bannerShadow">
 
     {/* slide 1 ---------------- */}
-  <div id="slide1" className="carousel-item relative w-full">
+  <div id="slide1" className="carousel-item relative w-full ">
   <div className="hero h-96" style={{ backgroundImage: `url(${banner1})` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content  text-neutral-content">

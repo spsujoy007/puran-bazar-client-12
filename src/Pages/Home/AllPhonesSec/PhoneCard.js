@@ -23,7 +23,7 @@ const PhoneCard = ({ phone }) => {
         <p>Location: {location}</p>
 
         <div className="flex justify-between">
-            <h5 className="text-xl">${resaleprice}</h5> <h5 className="text-xl"><s>${originalprice}</s></h5>
+            <h5 className="text-xl">৳{resaleprice}</h5> <h5 className="text-xl"><s>৳{originalprice}</s></h5>
         </div>
 
         <div className="card-actions justify-end">
