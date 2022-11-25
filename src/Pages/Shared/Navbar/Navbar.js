@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ButtonCommon from '../../../Components/ButtonCommon/ButtonCommon';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
+  const {singOut, user} = useContext(AuthContext);
+  const handleLogout = () => {
+    singOut()
+    .then(() => {})
+    .catch(err => console.error(err))
+  };
     // menu items for show in header 
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>Signup</Link></li>
+        {
+          user?.uid ?
+          <li><button onClick={handleLogout}>Sign Out</button></li> 
+          :
+          <li><Link to='/login'>Login</Link></li>
+        }
     </>
 
     return (

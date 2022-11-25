@@ -5,24 +5,38 @@ import { AuthContext } from '../../Context/AuthProvider';
 // import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const {createUser, googleSignPop} = useContext(AuthContext);
+    const {createUser, googleSignPop, updateUserdata} = useContext(AuthContext);
     
 
-    const handleSubmit= event=>{
+    const handleSubmit= event =>{
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
         const email= form.email.value;
         const password = form.password.value;
         const role = form.role.value;
-        console.log(name,email,password, role)
+
         createUser(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user)
+            console.log(user);
+            handleUpdateProfile(name)
+            
+            toast.success('Signup Successful')
         })
         .catch(err => console.error(err))
+    }
     
+    const handleUpdateProfile = (name) => {
+        console.log(name);
+        const userInfo = {
+            displayName: name
+        }
+        updateUserdata(userInfo)
+        .then(() => {
+
+        })
+        .catch(err => console.error(err));
     }
 
     const handleGoogleSignup = () => {
@@ -51,8 +65,8 @@ const Signup = () => {
     // }
 
     return (
-        <div className="h-[600px] justify-center flex">
-      <div className="w-96 p-7 shadow-xl rounded-xl">
+        <div className="mt-5 mb-10 justify-center flex">
+      <div className="w-96 p-7 shadow-xl rounded-xl px-10 pb-10">
          <div >
             <h2 className="text-2xl text-center px-2 font-semibold text-secondary">SIGN UP</h2>
          </div>
@@ -78,7 +92,6 @@ const Signup = () => {
             <select name='role' className="select select-bordered w-full max-w-xs">
                 <option selected value='user'>User</option>
                 <option value='seller'>Seller</option>
-                <option value="admin">Admin</option>
             </select>
           </div>
 

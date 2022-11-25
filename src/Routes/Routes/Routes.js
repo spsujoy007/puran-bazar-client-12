@@ -18,6 +18,11 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/usedphones/:category',
+                loader: ({params}) => fetch(`http://localhost:5000/usedphones/${params.category}`),
+                element: <Home></Home>
+            },
+            {
                 path: '/blog',
                 element: <Blog></Blog>
             },
