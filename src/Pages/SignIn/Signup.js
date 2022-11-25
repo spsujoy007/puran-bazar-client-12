@@ -19,8 +19,9 @@ const Signup = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
-            handleUpdateProfile(name)
+            // console.log(user);
+            handleUpdateProfile(name);
+            saveUserRole(name, email, role);
             
             toast.success('Signup Successful')
         })
@@ -43,26 +44,27 @@ const Signup = () => {
         googleSignPop()
         .then(result => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
         })
         .catch(err => console.error(err))
     }
 
-    // const saveUser = (name, email) => {
-    //     const user = {name, email};
-    //     fetch('http://localhost:5000/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setCreatedUserEmail(email)
-    //     })
-
-    // }
+    const saveUserRole = (name, email, role) => {
+        const user = {name, email, role};
+        // console.log(name, email, role);
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => console.error(err))
+    }
 
     return (
         <div className="mt-5 mb-10 justify-center flex">
