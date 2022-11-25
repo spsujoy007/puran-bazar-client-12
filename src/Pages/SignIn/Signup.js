@@ -44,7 +44,9 @@ const Signup = () => {
         googleSignPop()
         .then(result => {
             const user = result.user;
-            // console.log(user);
+            console.log(user);
+            const role = 'Buyer';
+            saveUserRole(user.displayName, user.email, role)
         })
         .catch(err => console.error(err))
     }
@@ -92,8 +94,8 @@ const Signup = () => {
           <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Chose your role</span></label>
             <select name='role' className="select select-bordered w-full max-w-xs">
-                <option selected value='user'>User</option>
-                <option value='seller'>Seller</option>
+                <option selected>Buyer</option>
+                <option>Seller</option>
             </select>
           </div>
 
