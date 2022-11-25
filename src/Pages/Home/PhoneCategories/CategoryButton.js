@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryButton = ({category}) => {
+const CategoryButton = ({phonecategory}) => {
+    const {category} = phonecategory;
+    // console.log(category);
     // const {category: singleCategory} = category
 
     // const {data: categories = [], isLoading, refetch} = useQuery({
@@ -16,8 +18,8 @@ const CategoryButton = ({category}) => {
 
     // to={`/usedphones/${singleCategory.category}`}
     return (
-        <Link to={`/usedphones/${category.category}`}>
-            <button className='btn btn-secondary w-full mb-3 shadow-xl'>{category.category}</button>
+        <Link to={`/usedphones/${category}`}>
+            <button className='btn btn-secondary w-full mb-3 shadow-xl'>{category}</button>
         </Link>
     );
 };

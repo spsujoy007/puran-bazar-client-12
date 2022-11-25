@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonCommon from "../../../Components/ButtonCommon/ButtonCommon";
 
-const PhoneCard = ({ phone }) => {
+const PhoneCard = ({ phone, setCategoryName }) => {
   const {
     name,
     picture,
@@ -11,7 +11,10 @@ const PhoneCard = ({ phone }) => {
     yearsofuse,
     originalprice,
     description,
+    category
   } = phone;
+
+
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure>

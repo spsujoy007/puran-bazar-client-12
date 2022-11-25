@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import ProductByCategory from '../../ProductByCategory/ProductByCategory';
 import AllPhoneSec from '../AllPhonesSec/AllPhoneSec';
 import BannerSection from '../BannerSection/BannerSection';
 import PhoneCategories from '../PhoneCategories/PhoneCategories';
 import SpacialDiscount from '../SpacialDiscount/SpacialDiscount';
 
 const Home = () => {
-    const category = useLoaderData();
-    console.log(category)
     return (
         <div >
             {/* Banner items and categories in this  */}
@@ -21,9 +20,9 @@ const Home = () => {
                 </div>
             </div>
             </div>
-            <Link to='/' className='btn btn-secondary mt-10'>Btn</Link>
             
             {/* Extra section  */}
+            {/* <ProductByCategory></ProductByCategor/ */}
             <AllPhoneSec></AllPhoneSec>
             <SpacialDiscount></SpacialDiscount>
 

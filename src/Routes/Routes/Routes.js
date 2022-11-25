@@ -4,6 +4,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import ProductByCategory from "../../Pages/ProductByCategory/ProductByCategory";
 import Signup from "../../Pages/SignIn/Signup";
 
 export const routes = createBrowserRouter([
@@ -20,7 +21,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/usedphones/:category',
                 loader: ({params}) => fetch(`http://localhost:5000/usedphones/${params.category}`),
-                element: <Home></Home>
+                element: <ProductByCategory></ProductByCategory>
             },
             {
                 path: '/blog',

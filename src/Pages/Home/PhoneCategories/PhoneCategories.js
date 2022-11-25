@@ -20,7 +20,7 @@ const PhoneCategories = () => {
             {
                 categories.map(category => <CategoryButton
                     key={category._id}
-                    category={category}
+                    phonecategory={category}
                 ></CategoryButton>)
             }
             </div>
