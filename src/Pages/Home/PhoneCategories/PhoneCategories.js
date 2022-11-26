@@ -14,15 +14,14 @@ const PhoneCategories = () => {
     })
 
     return (
-        <div className=''>
-            {/* <h5>{categories.length}</h5> */}
-            <div className='px-3 my-auto'>
-            {
-                categories.map(category => <CategoryButton
+        <div >
+            <div className='px-3'>
+                {
+                    categories.map(category => <CategoryButton
                     key={category._id}
                     phonecategory={category}
-                ></CategoryButton>)
-            }
+                    ></CategoryButton>)
+                }
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import PhoneCard from '../Home/AllPhonesSec/PhoneCard';
+import PhoneCard from '../AllPhonesSec/PhoneCard';
 
 const ProductByCategory = () => {
 

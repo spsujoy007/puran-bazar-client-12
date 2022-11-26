@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
     const {createUser, googleSignPop, updateUserdata} = useContext(AuthContext);
-    
+    const [error, setError] = useState('');
 
     const handleSubmit= event =>{
         event.preventDefault()
@@ -18,14 +18,17 @@ const Signup = () => {
 
         createUser(email, password)
         .then(result => {
-            const user = result.user;
+            // const user = result.user;
             // console.log(user);
             handleUpdateProfile(name);
             saveUserRole(name, email, role);
-            
-            toast.success('Signup Successful')
+            setError('');
+            toast.success('Signup Successful');
+            form.reset();
         })
-        .catch(err => console.error(err))
+        .catch(err => {
+            setError(err.message)
+        })
     }
     
     const handleUpdateProfile = (name) => {
@@ -37,7 +40,9 @@ const Signup = () => {
         .then(() => {
 
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            setError(err.message)
+        });
     }
 
     const handleGoogleSignup = () => {
@@ -63,9 +68,11 @@ const Signup = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
         })
-        .catch(err => console.error(err))
+        .catch(err => {
+            console.error(err)
+        })
     }
 
     return (
@@ -78,17 +85,17 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
            <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Name</span></label>
-            <input name='name' type="text" className="input input-bordered w-full max-w-xs"  placeholder="name" />
+            <input required name='name' type="text" className="input input-bordered w-full max-w-xs"  placeholder="name" />
            </div>
 
            <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Email</span></label>
-            <input name='email' type="email" className="input input-bordered w-full max-w-xs"  placeholder="email" />
+            <input required name='email' type="email" className="input input-bordered w-full max-w-xs"  placeholder="email" />
            </div>
 
           <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Password</span></label>
-            <input name='password' type="password" className="input input-bordered w-full max-w-xs" placeholder="password" />
+            <input required name='password' type="password" className="input input-bordered w-full max-w-xs" placeholder="password" />
           </div>
 
           <div className="form-control w-full max-w-xs">
@@ -98,7 +105,8 @@ const Signup = () => {
                 <option>Seller</option>
             </select>
           </div>
-
+           {/* error handaling   */}
+           <p className='text-error'>{error}</p>
           <input type="submit" value="sign up" className="btn btn-primary w-full mt-5" />
             
           

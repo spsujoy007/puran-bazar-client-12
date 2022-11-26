@@ -19,7 +19,7 @@ const CategoryButton = ({phonecategory}) => {
     // to={`/usedphones/${singleCategory.category}`}
     return (
         <Link to={`/usedphones/${category}`}>
-            <button className='btn btn-secondary w-full mb-3 shadow-xl'>{category}</button>
+            <button className='btn btn-outline btn-secondary w-full mb-4'>{category}</button>
         </Link>
     );
 };

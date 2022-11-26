@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
 
   const {singIn, googleSignPop} = useContext(AuthContext);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.from?.state?.pathname || '/';
+  
   
   const handleSubmit= event=>{
     event.preventDefault()
@@ -15,10 +20,16 @@ const Login = () => {
     console.log(email,password);
     singIn(email, password)
     .then(result => {
-      const user = result.user;
-      console.log(user);
+      // const user = result.user;
+      // console.log(user);
+      setError('');
+      navigate(from, {replace: true})
+      toast.success('Login Successful');
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+      // console.error(err)
+      setError(err.message)
+    })
 }
 
   const handleGoogleLogin = () => {
@@ -46,8 +57,10 @@ const Login = () => {
 
           <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Password</span></label>
+
             <input name="password" type="password" className="input input-bordered w-full max-w-xs" placeholder="password" />
             
+          <p className="text-error">{error}</p>
             <label className="label"><span className="label-text">Forgot password?</span></label>
           </div>
 
