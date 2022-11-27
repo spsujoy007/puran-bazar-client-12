@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import ButtonCommon from '../../../Components/ButtonCommon/ButtonCommon';
 import { AuthContext } from '../../../Context/AuthProvider';
 
@@ -12,12 +12,12 @@ const Navbar = () => {
   };
     // menu items for show in header 
     const menuItem = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/blog'>Blog</NavLink></li>
         {
           user?.uid ?
           <>
-            <li><Link to='/dashboard'>Dashboard</Link></li>
+            <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
             <li><button onClick={handleLogout}>Sign Out</button></li> 
           </>
           :
