@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 // import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const navigate = useNavigate();
     const {createUser, googleSignPop, updateUserdata} = useContext(AuthContext);
     const [error, setError] = useState('');
 
@@ -24,6 +25,7 @@ const Signup = () => {
             saveUserRole(name, email, role);
             setError('');
             toast.success('Signup Successful');
+            navigate('/')
             form.reset();
         })
         .catch(err => {
