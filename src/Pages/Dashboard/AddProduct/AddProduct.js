@@ -25,12 +25,9 @@ const AddProduct = () => {
         const description = form.description.value;
         // console.log(name, picture, location, sellername, originalprice, resaleprice, category, yearsofuse, description);
         
-        
-
         const formData = new FormData()
         formData.append('image', picture);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
-        console.log("My url: ", url)
         fetch(url, {
             method: 'POST',
             body: formData
@@ -133,8 +130,6 @@ const AddProduct = () => {
                 <option>Redmi</option>
                 <option>Samsung</option>
                 <option>Vivo</option>
-                <option>One Plus</option>
-                <option>Oppo</option>
             </select>
           </div>
 

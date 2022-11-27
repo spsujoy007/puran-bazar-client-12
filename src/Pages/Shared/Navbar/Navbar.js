@@ -12,12 +12,12 @@ const Navbar = () => {
   };
     // menu items for show in header 
     const menuItem = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/blog'>Blog</NavLink></li>
+        <li><NavLink className="rounded-xl" to='/'>Home</NavLink></li>
+        <li><NavLink className="rounded-xl" to='/blog'>Blog</NavLink></li>
         {
           user?.uid ?
           <>
-            <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+            <li><NavLink className="rounded-xl" to='/dashboard'>Dashboard</NavLink></li>
             <li><button onClick={handleLogout}>Sign Out</button></li> 
           </>
           :
