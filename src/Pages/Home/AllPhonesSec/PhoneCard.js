@@ -35,11 +35,6 @@ const PhoneCard = ({ phone, setCategoryName }) => {
             <h5 className="text-xl text-primary">Price: <span className="font-bold">৳{resaleprice}</span></h5> <h5 className="text-xl text-gray-300"><s>৳{originalprice}</s></h5>
         </div>
 
-        {/* for user info */}
-        <div>
-          <div>{user?.displayName}</div>
-        </div>
-
         <div className="card-actions justify-end">
             <Link to={`/phone/${_id}`}><button className="btn btn-primary">Show Detail</button></Link>
         </div>

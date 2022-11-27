@@ -16,7 +16,8 @@ const SingleProductCard = () => {
         yearsofuse,
         originalprice,
         description,
-        email
+        email,
+        date
       } = phone;
 
     return (
@@ -28,12 +29,12 @@ const SingleProductCard = () => {
     </div>
     
     {/* For info */}
-    <div className='md:w-[65%] md:mt-0 mt-10'>
+    <div className='md:w-[65%] md:mt-0 mt-10 md:mr-24'>
     <div className="">
         <h1 className='text-3xl mb-2'>{name}</h1>
         <hr />
     </div>
-      <p className='md:mr-24 mt-5'>{description}</p>
+      <p className=' mt-5'>{description}</p>
       <div className='p-3 shadow-md md:w-1/2 rounded-xl'>
       <p className='mt-1 flex items-center'><span className='text-secondary mr-3'>Location:</span> <FaMapMarkerAlt></FaMapMarkerAlt> {location}</p>
 
@@ -42,7 +43,8 @@ const SingleProductCard = () => {
     <p>Resale Price: ৳{resaleprice}</p>
     <p className='text-gray-400 lowercase'>Original Price: <s >৳{originalprice}</s></p>
     </div>
-    <p className='text-secondary mt-2'>Use: ({yearsofuse} years)</p>
+    <p className='text-secondary my-2'>Use: ({yearsofuse} years)</p>
+    <p>Publishing date: <span className='text-primary'>{date}</span> </p>
     </div>
       </div>
 
@@ -53,7 +55,20 @@ const SingleProductCard = () => {
       </div>
 
       <div className="md:flex justify-end">
-        <button className="btn btn-primary mt-5 md:px-20">Book now</button>
+    <label htmlFor="my-modal" className="btn btn-primary mt-5 md:px-20 ">Book now</label>
+        {/* The button to open modal */}
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my-modal" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Confirmation book</h3>
+    
+    <div className="modal-action">
+      <label htmlFor="my-modal" className="btn">Book!</label>
+    </div>
+  </div>
+</div>
       </div>
 
     </div>

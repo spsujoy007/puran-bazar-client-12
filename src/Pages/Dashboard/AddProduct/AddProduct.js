@@ -7,6 +7,23 @@ const AddProduct = () => {
     const useremail = user.email;
     // console.log(useremail);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+
+    //get the current time
+    // const current = new Date();
+    // const time = current.toLocaleTimeString("en-US", {
+    //   hour: "2-digit",
+    //   minute: "2-digit",
+    // });
+    // console.log(time);
+    
+    //get the current date
+    const currentdate = new Date();
+    const date = currentdate.toLocaleDateString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    console.log(date);
+    
     
     const handleAddProduct = (event) => {
         event.preventDefault();
@@ -47,7 +64,8 @@ const AddProduct = () => {
                     yearsofuse,
                     category,
                     description,
-                    useremail
+                    useremail,
+                    date
                 };
                 console.log(newProduct)
 
