@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { FaCheckCircle, FaMapMarkerAlt } from "react-icons/fa";
 import { AuthContext } from '../../../Context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const SingleProductCard = () => {
     const {user} = useContext(AuthContext);
-    const userName = user.displayName;
+    const navigate = useNavigate();
     
     const phone = useLoaderData();
     const {id, name, picture, sellername, location, resaleprice, yearsofuse,              originalprice, description, email, date
@@ -22,7 +23,6 @@ const SingleProductCard = () => {
           phone: form.phone.value,
           location: form.location.value
         }
-        console.log(orderInfo);
         fetch('http://localhost:5000/orders', {
           method: 'POST',
           headers: {
@@ -32,7 +32,8 @@ const SingleProductCard = () => {
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
+          toast.success('Booking confirmed')
+          navigate('/dashboard')
         })
         .catch(error => console.error(error))
       } 
@@ -96,13 +97,12 @@ const SingleProductCard = () => {
                         {
                             !user && <p>Please login to create a Booking</p>
                         }
-                        <label htmlFor="booking-modal" type="submit" value='Submit' className={user ?
+                        <input htmlFor="booking-modal" type="submit" value='Submit' className={user ?
                             "btn btn-secondary w-full"
                             :
                             "btn btn-accent w-full btn-disabled"
                         } > 
-                       <input htmlFor="booking-modal" type="submit" value='Submit'/> 
-                        </label>
+                        </input>
                     </form>
                 </div>
             </div>

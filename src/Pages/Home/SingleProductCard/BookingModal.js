@@ -61,7 +61,6 @@ const BookingModal = ({modalInfo: phone, setModalInfo}) => {
                             !user && <p>Please login to create a Booking</p>
                         }
                         
-      <label htmlFor="booking-modal" type='/' className="btn">Yay!</label>
                     </form>
                 </div>
             </div>

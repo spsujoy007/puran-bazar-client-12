@@ -93,7 +93,7 @@ const AddProduct = () => {
 
     return (
         <div>
-            <div className="md:ml-12 mr-5">
+            <div className="md:ml-15 mr-14 mt-4">
       <div className="w-full p-7 rounded-xl border-2 border-secondary border-dashed">
         <div className=''>
             <h2 className='text-2xl text-secondary m-0'>Here you can add a product.</h2>
