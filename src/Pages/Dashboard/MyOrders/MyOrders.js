@@ -6,7 +6,7 @@ import OrdersTable from './OrdersTable';
 const MyOrders = () => {
     const {user} = useContext(AuthContext)
 
-    const {data: orders = [], refetch, isLoading} = useQuery({
+    const {data: orders = [], isLoading, refetch } = useQuery({
         queryKey: ['orders'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/orders?email=${user?.email}`);
@@ -17,7 +17,7 @@ const MyOrders = () => {
     refetch()
     
     if(isLoading){
-            <progress className="progress progress-primary w-56"></progress>
+            <h1 className='text-6xl'>Loading</h1>
     }
 
     return (
@@ -28,7 +28,6 @@ const MyOrders = () => {
       <tr>
         <th>Product name</th>
         <th>Price</th>
-        <th>Report</th>
         <th>Remove</th>
         <th>Payment</th>
       </tr>
@@ -39,8 +38,8 @@ const MyOrders = () => {
     orders.map((order, idx) => <OrdersTable
         key={order._id}
         order={order}
-        idx={idx}
-    ></OrdersTable>)
+    ></OrdersTable>
+    )
 }
 
     </tbody>

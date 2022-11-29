@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddProduct = () => {
@@ -7,6 +8,7 @@ const AddProduct = () => {
     const useremail = user.email;
     // console.log(useremail);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate();
 
     //get the current time
     // const current = new Date();
@@ -22,7 +24,7 @@ const AddProduct = () => {
       hour: "2-digit",
       minute: "2-digit",
     });
-    console.log(date);
+    // console.log(date);
     
     
     const handleAddProduct = (event) => {
@@ -40,6 +42,7 @@ const AddProduct = () => {
         const category = form.category.value;
         const yearsofuse = form.yearsofuse.value;
         const description = form.description.value;
+        const condition = form.condition.value;
         // console.log(name, picture, location, sellername, originalprice, resaleprice, category, yearsofuse, description);
         
         const formData = new FormData()
@@ -65,9 +68,9 @@ const AddProduct = () => {
                     category,
                     description,
                     useremail,
-                    date
+                    date,
+                    condition
                 };
-                console.log(newProduct)
 
                 if(confirmation) {
                     //Add new product with post method
@@ -80,8 +83,8 @@ const AddProduct = () => {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     toast.success("Product added");
+                    navigate('/dashboard/myproducts')
                     form.reset();
                 })
                 }
@@ -123,12 +126,21 @@ const AddProduct = () => {
 
           <div className="form-control w-full">
             <label className="label"><span className="label-text">Seller name</span></label>
-            <input required defaultValue={user.displayName} readOnly name="sellername" type="text" className="input input-bordered w-full"  placeholder="sellername" />
+            <input required defaultValue={user.displayName} disabled name="sellername" type="text" className="input input-bordered w-full"  placeholder="sellername" />
           </div>
 
           <div className="form-control w-full">
             <label className="label"><span className="label-text">Original Price</span></label>
             <input required name="originalprice" type="text" className="input input-bordered w-full"  placeholder="Original price" />
+          </div>
+          
+          <div className="form-control w-full">
+            <label className="label"><span className="label-text">Condition</span></label>
+            <select name='condition' required className="select select-bordered w-full">
+                <option>Excellent</option>
+                <option>Good</option>
+                <option>Fair</option>
+            </select>
           </div>
           </div>
 

@@ -25,9 +25,6 @@ const OrdersTable = ({order}) => {
         <td>{name}</td>
         <td>৳{resaleprice}</td>
         <td>
-            <button className='btn btn-error btn-xs'>Report</button>
-        </td>
-        <td>
             <button onClick={() => handleDeleteProduct(_id)} className='btn btn-danger px-[18px] rounded-full'>X</button>
         </td>
         <td>

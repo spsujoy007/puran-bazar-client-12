@@ -4,11 +4,10 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import MyProductsTable from './MyProductsTable';
 
 const MyProducts = () => {
-
     const {user} = useContext(AuthContext)
 
-    const {data: myproducts = [], refetch} = useQuery({
-        queryKey: [],
+    const {data: myproducts = [], refetch, isLoading} = useQuery({
+        queryKey: ['myproducts'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/myproducts?email=${user?.email}`);
             const data = res.json();
@@ -17,17 +16,21 @@ const MyProducts = () => {
     })
     refetch()
 
+    if(isLoading){
+        return <progress className="progress w-56"></progress>
+    }
+
     return (
-        <div className='mt-5'>
-            <h1 className='text-xl uppercase text-secondary'>Total Product: {myproducts.length}</h1>
-            <div className="overflow-x-auto">
+        <div className='mt-3'>
+            <h1 className='text-xl uppercase text-secondary'>Your Total Product: {myproducts.length}</h1>
+            <div className="overflow-x-auto mt-2">
   <table className="table w-full">
     <thead>
       <tr>
         <th>Picture</th>
         <th>Product name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Price</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>

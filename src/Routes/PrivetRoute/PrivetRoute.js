@@ -7,13 +7,7 @@ const PrivetRoute = ({children}) => {
     const location = useLocation()
     
     if(loading){
-        return <div className='flex justify-center items-center h-[100vh]'>
-            <div className="flex items-center justify-center space-x-2">
-	        <div className="w-4 h-4 rounded-full animate-pulse bg-emerald-600"></div>
-	        <div className="w-4 h-4 rounded-full animate-pulse bg-emerald-600"></div>
-	        <div className="w-4 h-4 rounded-full animate-pulse bg-emerald-600"></div>
-            </div>
-        </div>
+        return <progress className="progress w-56"></progress>
     }
 
     if(user){

@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import ReportedProducts from "../../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
@@ -11,6 +13,7 @@ import ProductByCategory from "../../Pages/Home/ProductByCategory/ProductByCateg
 import SingleProductCard from "../../Pages/Home/SingleProductCard/SingleProductCard";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/SignIn/Signup";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -31,7 +34,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/phone/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/phone/${params.id}`),
-                element: <SingleProductCard></SingleProductCard>
+                element: <PrivetRoute><SingleProductCard></SingleProductCard></PrivetRoute>
             },
             {
                 path: '/blog',
@@ -54,16 +57,24 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <MyOrders></MyOrders>
+                element: <PrivetRoute><MyOrders></MyOrders></PrivetRoute>
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>
             },
             {
                 path: '/dashboard/myproducts',
                 element: <MyProducts></MyProducts>
-            }
+            },
+            {
+                path: '/dashboard/reportedproduct',
+                element: <ReportedProducts></ReportedProducts>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
         ]
     }
 ])

@@ -3,6 +3,9 @@ import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
+
+    
+
     return (
         <div>
             <Navbar></Navbar>
@@ -22,8 +25,8 @@ const DashboardLayout = () => {
             <li><Link to='/dashboard/myproducts' className='btn btn-outline btn-secondary mb-2'>My Products</Link></li>
 
             {/* for Admin  */}
-            <li><Link to='/dashboard/addproduct' className='btn btn-outline btn-secondary mb-2' disabled>All users</Link></li>
-            <li><Link to='/dashboard/addproduct' className='btn btn-outline btn-secondary mb-2' disabled>Reported</Link></li>
+            <li><Link to='/dashboard/allusers' className='btn btn-outline btn-secondary mb-2'>All users</Link></li>
+            <li><Link to='/dashboard/reportedproduct' className='btn btn-outline btn-secondary mb-2'>Reported</Link></li>
         </ul>
 
         </div>

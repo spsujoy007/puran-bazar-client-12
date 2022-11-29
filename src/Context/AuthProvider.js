@@ -30,8 +30,9 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return updateProfile(auth.currentUser, userInformation)
     }
-
+    
     const googleSignPop = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -55,7 +56,7 @@ const AuthProvider = ({children}) => {
         singOut,
         googleSignPop,
         updateUserdata,
-        // loading,
+        loading,
     }
 
     return (

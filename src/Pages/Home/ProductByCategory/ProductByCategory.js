@@ -6,7 +6,6 @@ const ProductByCategory = () => {
 
     
     const category = useLoaderData();
-    console.log(category)
 
     return (
         <div>

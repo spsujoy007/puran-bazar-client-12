@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import { FaCheckCircle, FaMapMarkerAlt } from "react-icons/fa";
+import { FaCheckCircle, FaInfoCircle, FaMapMarkerAlt } from "react-icons/fa";
 import { AuthContext } from '../../../Context/AuthProvider';
 import toast from 'react-hot-toast';
 
@@ -9,7 +9,7 @@ const SingleProductCard = () => {
     const navigate = useNavigate();
     
     const phone = useLoaderData();
-    const {id, name, picture, sellername, location, resaleprice, yearsofuse,              originalprice, description, email, date
+    const {_id, name, picture, report, sellername, location, resaleprice, yearsofuse, condition, originalprice, description, useremail, date
       } = phone;
 
       const handleBooking = (event) => {
@@ -38,6 +38,29 @@ const SingleProductCard = () => {
         .catch(error => console.error(error))
       } 
 
+      const handleReportProduct = id => {
+        const permission = window.confirm(`Are you report ${name}`);
+        if(permission){
+          fetch(`http://localhost:5000/usedphones?id=${id}`, {
+            method: "PUT"
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.modifiedCount > 0){
+              toast.success('Product reported')
+            }
+          })
+        }
+      }
+
+      const [isVerfied, setIsVerfied] = useState(false);
+      console.log(isVerfied);
+      useEffect(() => {
+        fetch(`http://localhost:5000/users/${useremail}`)
+        .then(res => res.json())
+        .then(data => setIsVerfied(data))
+      }, [isVerfied])
+
     return (
         <div className="">
   <div className="md:flex">
@@ -59,18 +82,29 @@ const SingleProductCard = () => {
     <div className=''>
     <div className='md:flex justify-between text-xl'>
     <p>Resale Price: ৳{resaleprice}</p>
-    <p className='text-gray-400 lowercase'>Original Price: <s >৳{originalprice}</s></p>
+    <p className='text-gray-400 lowercase'><s >৳{originalprice}</s></p>
     </div>
     <p className='text-secondary my-2'>Use: ({yearsofuse} years)</p>
     <p>Publishing date: <span className='text-primary'>{date}</span> </p>
+    <p className='mt-2'><span className='font-semibold text-secondary uppercase'>Condition:</span> {condition}</p>
     </div>
       </div>
 
       {/* user information */}
       <div className='mt-3 p-3 shadow-md rounded-xl md:w-1/2 flex items-center'>
         <h1 className='text-2xl uppercase font-semibold '>Seller: <span className='text-secondary'>{sellername}</span></h1>
-        <FaCheckCircle className='text-blue-500 ml-2 text-xl'></FaCheckCircle>
+        {
+          isVerfied && <FaCheckCircle className='text-blue-500 ml-2 text-xl'></FaCheckCircle>
+        }
       </div>
+
+        {/* Report to admin  */}
+      {
+        report ? 
+        <button disabled className="btn btn-error mt-5 btn-sm"><FaInfoCircle className='mr-2'></FaInfoCircle> Report to admin</button>
+        :
+        <button onClick={() => handleReportProduct(_id)} className="btn btn-error mt-5 btn-sm"><FaInfoCircle className='mr-2'></FaInfoCircle> Report to admin</button>
+      }
 
       <div className="md:flex justify-end">
     <label htmlFor="booking-modal" className="btn btn-primary mt-5 md:px-20 ">Book now</label>
