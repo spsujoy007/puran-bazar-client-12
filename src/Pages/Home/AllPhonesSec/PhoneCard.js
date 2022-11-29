@@ -21,11 +21,11 @@ const PhoneCard = ({ phone, setCategoryName }) => {
   // http://localhost:5000/phone/637f5c48460053f52030daa5
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl max-h-[340px]">
+    <div className="card card-side bg-base-100 shadow-xl mb-5 grid grid-cols-1 md:grid-cols-2">
       <figure>
         <img src={picture} alt={name} />
       </figure>
-      <div className="card-body my-auto">
+      <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>{description.slice(0,100)}...</p>
         <p>Location: {location}</p>

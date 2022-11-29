@@ -34,6 +34,20 @@ const AllUsers = () => {
         }
     }
 
+    //Delete an user from database
+    const handleDeleteUser = id =>{
+        const permission = window.confirm('On delete user this can not be undone');
+        if(permission){
+            fetch(`http://localhost:5000/users?id=${id}`, {
+                method: "DELETE"
+            })
+            .then(res => res.json())
+            .then(data => {
+                toast.success("User delete successfully")
+            })
+        }
+    }
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -46,6 +60,7 @@ const AllUsers = () => {
         <th>User email</th>
         <th>Role</th>
         <th>Verify</th>
+        <th>Delete user</th>
       </tr>
     </thead>
     <tbody>
@@ -58,12 +73,17 @@ const AllUsers = () => {
         <td>
             {
             user?.verified ? 
-            <button disabled className='btn btn-primary btn-sm'>Verify</button>
+            <button disabled className='btn btn-primary btn-sm'>verified</button>
             :
             <button onClick={() => handleVerfiyUser(user?._id)} className='btn btn-primary btn-sm'>Verify</button>
             }
         </td>
-      </tr>)
+
+        <td>
+            <button onClick={() => handleDeleteUser(user?._id)} className='btn btn-error btn-sm text-white'>Delete</button>
+        </td>
+      </tr>
+      )
       }
     </tbody>
   </table>

@@ -40,7 +40,6 @@ const Signup = () => {
         }
         updateUserdata(userInfo)
         .then(() => {
-
         })
         .catch(err => {
             setError(err.message)
@@ -53,7 +52,8 @@ const Signup = () => {
             const user = result.user;
             console.log(user);
             const role = 'Buyer';
-            saveUserRole(user.displayName, user.email, role)
+            saveUserRole(user.displayName, user.email, role);
+            navigate('/')
         })
         .catch(err => console.error(err))
     }

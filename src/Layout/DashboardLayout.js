@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
+import useSeller from '../hooks/useSeller';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
-
-    
+    const {user} = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email)
 
     return (
         <div>
@@ -18,15 +22,27 @@ const DashboardLayout = () => {
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             {/* for buyer:  */}
-            <li><Link to='/dashboard' className='btn btn-outline btn-secondary mb-2'>My orders</Link></li>
+            {
+                !isSeller && !isAdmin && <li><Link to='/dashboard' className='btn btn-outline btn-secondary mb-2'>My orders</Link></li>
+            }
 
             {/* for seller:  */}
-            <li><Link to='/dashboard/addproduct' className='btn btn-outline btn-secondary mb-2'>Add Product</Link></li>
-            <li><Link to='/dashboard/myproducts' className='btn btn-outline btn-secondary mb-2'>My Products</Link></li>
+            {
+                isSeller && 
+                <>
+                    <li><Link to='/dashboard/addproduct' className='btn btn-outline btn-secondary mb-2'>Add Product</Link></li>
+                    <li><Link to='/dashboard/myproducts' className='btn btn-outline btn-secondary mb-2'>My Products</Link></li>
+                </>
+            }
 
             {/* for Admin  */}
-            <li><Link to='/dashboard/allusers' className='btn btn-outline btn-secondary mb-2'>All users</Link></li>
-            <li><Link to='/dashboard/reportedproduct' className='btn btn-outline btn-secondary mb-2'>Reported</Link></li>
+            {
+                isAdmin &&
+                <>
+                    <li><Link to='/dashboard/allusers' className='btn btn-outline btn-secondary mb-2'>All users</Link></li>
+                    <li><Link to='/dashboard/reportedproduct' className='btn btn-outline btn-secondary mb-2'>Reported</Link></li>
+                </>
+            }
         </ul>
 
         </div>

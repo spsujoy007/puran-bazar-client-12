@@ -53,16 +53,15 @@ const SingleProductCard = () => {
         }
       }
 
-      const [isVerfied, setIsVerfied] = useState(false);
-      console.log(isVerfied);
+      const [isVerfied, setIsVerfied] = useState(null);
       useEffect(() => {
-        fetch(`http://localhost:5000/users/${useremail}`)
+        fetch(`http://localhost:5000/users`)
         .then(res => res.json())
         .then(data => setIsVerfied(data))
-      }, [isVerfied])
+      }, [isVerfied]);
 
     return (
-        <div className="">
+      <div className="">
   <div className="md:flex">
     {/* //for product image */}
     <div className='md:w-[35%]'>
@@ -94,7 +93,10 @@ const SingleProductCard = () => {
       <div className='mt-3 p-3 shadow-md rounded-xl md:w-1/2 flex items-center'>
         <h1 className='text-2xl uppercase font-semibold '>Seller: <span className='text-secondary'>{sellername}</span></h1>
         {
-          isVerfied && <FaCheckCircle className='text-blue-500 ml-2 text-xl'></FaCheckCircle>
+          isVerfied?.map(verifyuser => 
+          <>{verifyuser?.email === useremail && verifyuser?.verified && 
+          <FaCheckCircle className='text-blue-500 ml-2 text-xl'></FaCheckCircle>}
+          </>)
         }
       </div>
 

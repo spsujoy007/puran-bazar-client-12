@@ -9,7 +9,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.from?.state?.pathname || '/';
+  const from = location.from?.state?.pathame || '/';
   
   
   const handleSubmit= event=>{
@@ -35,8 +35,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignPop()
     .then(result => {
-      const user = result.user;
-      console.log(user)
+      navigate(from, {replace: true})
     })
     .catch(err => console.error(err))
   }

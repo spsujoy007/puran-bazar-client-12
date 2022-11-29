@@ -12,7 +12,7 @@ const OrdersTable = ({order}) => {
            fetch(`http://localhost:5000/orders?email=${user?.email}&id=${id}`, {
              method: "DELETE"
            })
-           .then(res => res.json(res))
+           .then(res => res.json())
            .then(data => {
                toast.success('Product deleted!')
                 console.log(data);

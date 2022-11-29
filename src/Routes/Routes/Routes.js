@@ -13,7 +13,9 @@ import ProductByCategory from "../../Pages/Home/ProductByCategory/ProductByCateg
 import SingleProductCard from "../../Pages/Home/SingleProductCard/SingleProductCard";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/SignIn/Signup";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -61,20 +63,20 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/addproduct',
-                element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
             {
                 path: '/dashboard/myproducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
             {
                 path: '/dashboard/reportedproduct',
-                element: <ReportedProducts></ReportedProducts>
+                element: <AdminRoute><ReportedProducts></ReportedProducts></AdminRoute>
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
-            },
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            }
         ]
     }
 ])
