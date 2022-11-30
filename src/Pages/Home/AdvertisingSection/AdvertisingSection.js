@@ -21,7 +21,7 @@ const AdvertisingSection = () => {
 
     return (
         <div>
-            <div className='lg:grid grid-cols-2'> 
+            <div className='lg:grid gap-10 mb-5 grid-cols-2'> 
             {
                 advertisedItems.map(phone => <PhoneCard
                     key={phone._key}

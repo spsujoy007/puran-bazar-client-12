@@ -172,6 +172,12 @@ const AddProduct = () => {
             <label className="label"><span className="label-text">Description</span></label>
             <textarea required name="description" type="text" className="input input-bordered w-full h-[132px]"  placeholder="description" />
           </div>
+
+          <div className="form-control w-full">
+            <label className="label"><span className="label-text">Email</span></label>
+            <input disabled defaultValue={useremail} name="email" type="email" className="input input-bordered w-full" />
+          </div>
+
           </div>
           </div>
 
