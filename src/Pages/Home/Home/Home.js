@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AllPhoneSec from '../AllPhonesSec/AllPhoneSec';
 import BannerSection from '../BannerSection/BannerSection';
+import MeetOurTeam from '../MeetOurTeam/MeetOurTeam';
 import PhoneCategories from '../PhoneCategories/PhoneCategories';
 import SpacialDiscount from '../SpacialDiscount/SpacialDiscount';
 
@@ -24,7 +25,7 @@ const Home = () => {
             {/* <ProductByCategory></ProductByCategor/ */}
             <AllPhoneSec></AllPhoneSec>
             <SpacialDiscount></SpacialDiscount>
-
+            <MeetOurTeam></MeetOurTeam>
 
         </div>
     );

@@ -14,7 +14,8 @@ const MyProducts = () => {
             return data
         }
     })
-    refetch()
+
+    refetch();
 
     if(isLoading){
         return <progress className="progress w-56"></progress>
@@ -31,6 +32,7 @@ const MyProducts = () => {
         <th>Product name</th>
         <th>Price</th>
         <th>Delete</th>
+        <th>Advertise Product</th>
       </tr>
     </thead>
     <tbody>

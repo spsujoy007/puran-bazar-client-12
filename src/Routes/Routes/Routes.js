@@ -7,6 +7,7 @@ import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import ReportedProducts from "../../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
+import AdvertisingSection from "../../Pages/Home/AdvertisingSection/AdvertisingSection";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import ProductByCategory from "../../Pages/Home/ProductByCategory/ProductByCategory";
@@ -41,6 +42,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/advertising',
+                element: <AdvertisingSection></AdvertisingSection>
             },
             {
                 path: '/login',

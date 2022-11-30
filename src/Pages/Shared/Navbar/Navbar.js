@@ -14,6 +14,7 @@ const Navbar = () => {
     const menuItem = <>
         <li><NavLink className="rounded-xl" to='/'>Home</NavLink></li>
         <li><NavLink className="rounded-xl" to='/blog'>Blog</NavLink></li>
+        <li><NavLink className="rounded-xl" to='/advertising'>Advertised items</NavLink></li>
         {
           user?.uid ?
           <>

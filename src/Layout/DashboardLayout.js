@@ -28,7 +28,7 @@ const DashboardLayout = () => {
 
             {/* for seller:  */}
             {
-                isSeller && 
+                isSeller &&
                 <>
                     <li><Link to='/dashboard/addproduct' className='btn btn-outline btn-secondary mb-2'>Add Product</Link></li>
                     <li><Link to='/dashboard/myproducts' className='btn btn-outline btn-secondary mb-2'>My Products</Link></li>
