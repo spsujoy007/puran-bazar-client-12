@@ -7,7 +7,7 @@ const ReportedProducts = () => {
     const {data: reporteditems = [], refetch, isLoading} = useQuery({
         queryKey: ['reporteditems'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/usedphones`);
+            const res = await fetch(`https://puran-bazar-server-ten.vercel.app/usedphones`);
             const data = await res.json();
             return data;
         }

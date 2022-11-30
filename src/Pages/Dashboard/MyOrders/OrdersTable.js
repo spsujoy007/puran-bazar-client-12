@@ -9,7 +9,7 @@ const OrdersTable = ({order}) => {
     const handleDeleteProduct = (id) => {
         const permission = window.confirm('Are you sure want to delete this item?');
         if(permission){
-           fetch(`http://localhost:5000/orders?email=${user?.email}&id=${id}`, {
+           fetch(`https://puran-bazar-server-ten.vercel.app/orders?email=${user?.email}&id=${id}`, {
              method: "DELETE"
            })
            .then(res => res.json())

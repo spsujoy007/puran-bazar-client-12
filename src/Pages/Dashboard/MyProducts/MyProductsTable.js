@@ -7,7 +7,7 @@ const MyProductsTable = ({product}) => {
     const handleDeleteProduct = id => {
         const permission = window.confirm('When you delete this item its cannot undone this')
         if(permission){
-            fetch(`http://localhost:5000/myproducts?id=${id}`, {
+            fetch(`https://puran-bazar-server-ten.vercel.app/myproducts?id=${id}`, {
                 method: "DELETE"
             })
             .then(res => res.json())
@@ -23,7 +23,7 @@ const MyProductsTable = ({product}) => {
     const handleAdvertiseProduct = (id) => {
         const permission = window.confirm('Are you sure to advertise this product')
         if(permission){
-            fetch(`http://localhost:5000/myproducts?id=${id}`, {
+            fetch(`https://puran-bazar-server-ten.vercel.app/myproducts?id=${id}`, {
                 method: "PUT"
             })
             .then(res => res.json())

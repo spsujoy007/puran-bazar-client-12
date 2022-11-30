@@ -10,8 +10,8 @@ const BannerSection = () => {
     <div className="carousel rounded-xl bannerShadow">
 
     {/* slide 1 ---------------- */}
-  <div id="slide1" className="carousel-item relative w-full ">
-  <div className="hero h-96" style={{ backgroundImage: `url(${banner1})` }}>
+  <div id="slide1" className="carousel-item relative w-full">
+  <div className="hero md h-[90vh] md:h-96" style={{ backgroundImage: `url(${banner1})`, backgroundRepeat: "no-repeat" }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content  text-neutral-content">
     <div className="md:px-20">
@@ -29,7 +29,7 @@ const BannerSection = () => {
     
   {/* slide 2 ---------------- */}
   <div id="slide2" className="carousel-item relative w-full">
-  <div className="hero h-96" style={{ backgroundImage: `url(${banner2})` }}>
+  <div className="hero h-[90vh] md:h-96" style={{ backgroundImage: `url(${banner2})`, backgroundRepeat: "no-repeat" }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content">
     <div className="md:px-20">
@@ -47,7 +47,7 @@ const BannerSection = () => {
 
   {/* slide 3 ---------------- */}
   <div id="slide3" className="carousel-item relative w-full">
-  <div className="hero h-96" style={{ backgroundImage: `url(${banner3})` }}>
+  <div className="hero h-[90vh] md:h-96" style={{ backgroundImage: `url(${banner3})`, backgroundRepeat: "no-repeat" }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content">
     <div className="md:px-20">

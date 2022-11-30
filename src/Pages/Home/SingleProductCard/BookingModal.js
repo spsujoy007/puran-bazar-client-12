@@ -20,7 +20,7 @@ const BookingModal = ({modalInfo: phone, setModalInfo}) => {
         location: form.location.value
       }
       console.log(orderInfo);
-      fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+      fetch(`https://puran-bazar-server-ten.vercel.app/orders?email=${user?.email}`, {
         method: "POST",
         headers: {
             'content-type': 'application/json'

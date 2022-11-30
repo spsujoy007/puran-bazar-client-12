@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
 import AllPhoneSec from '../AllPhonesSec/AllPhoneSec';
 import BannerSection from '../BannerSection/BannerSection';
 import MeetOurTeam from '../MeetOurTeam/MeetOurTeam';
@@ -12,10 +11,10 @@ const Home = () => {
             {/* Banner items and categories in this  */}
             <div>
             <div className='md:flex'>
-                <div className='flex-1 '>
+                <div className='md:flex-1 '>
                     <BannerSection></BannerSection>
                 </div>
-                <div className='flex-1 w-72 '>
+                <div className='md:flex-1 md:w-72 mt-10 md:mt-0'>
                     <PhoneCategories></PhoneCategories>
                 </div>
             </div>

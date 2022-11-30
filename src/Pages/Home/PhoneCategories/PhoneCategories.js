@@ -7,7 +7,7 @@ const PhoneCategories = () => {
     // const {data: categories = []} = useQuery({
     //     queryKey: ['categories'],
     //     queryFn: async() => {
-    //         const res = await fetch('http://localhost:5000/usedphones');
+    //         const res = await fetch('https://puran-bazar-server-ten.vercel.app/usedphones');
     //         const data = await res.json()
     //         return data
     //     }

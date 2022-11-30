@@ -7,7 +7,7 @@ const AdvertisingSection = () => {
     const {data: advertisedItems = [], refetch, isLoading} = useQuery({
         queryKey: [],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/advertiseditems`);
+            const res = await fetch(`https://puran-bazar-server-ten.vercel.app/advertiseditems`);
             const data = await res.json();
             return data;
         }

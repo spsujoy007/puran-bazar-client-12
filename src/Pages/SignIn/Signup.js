@@ -61,7 +61,7 @@ const Signup = () => {
     const saveUserRole = (name, email, role) => {
         const user = {name, email, role};
         // console.log(name, email, role);
-        fetch('http://localhost:5000/users', {
+        fetch('https://puran-bazar-server-ten.vercel.app/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

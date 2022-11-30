@@ -18,7 +18,7 @@ const PhoneCard = ({ phone, setCategoryName }) => {
     category
   } = phone;
 
-  // http://localhost:5000/phone/637f5c48460053f52030daa5
+  // https://puran-bazar-server-ten.vercel.app/phone/637f5c48460053f52030daa5
 
   return (
     <div className="card card-side bg-base-100 shadow-xl mb-5 grid grid-cols-1 md:grid-cols-2">

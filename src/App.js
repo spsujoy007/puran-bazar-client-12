@@ -5,9 +5,11 @@ import { routes } from './Routes/Routes/Routes';
 
 function App() {
   return (
-    <div className='md:mx-2 mx-5' data-theme="fantasy">
+    <div  data-theme="fantasy">
+      <div className='md:px-2 px-2'>
       <RouterProvider router={routes}></RouterProvider>
       <Toaster></Toaster>
+      </div>
     </div>
   );
 }

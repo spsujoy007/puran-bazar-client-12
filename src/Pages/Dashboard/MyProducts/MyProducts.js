@@ -9,7 +9,7 @@ const MyProducts = () => {
     const {data: myproducts = [], refetch, isLoading} = useQuery({
         queryKey: ['myproducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myproducts?email=${user?.email}`);
+            const res = await fetch(`https://puran-bazar-server-ten.vercel.app/myproducts?email=${user?.email}`);
             const data = res.json();
             return data
         }

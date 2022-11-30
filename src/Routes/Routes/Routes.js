@@ -31,12 +31,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/usedphones/:category',
-                loader: ({params}) => fetch(`http://localhost:5000/usedphones/${params.category}`),
+                loader: ({params}) => fetch(`https://puran-bazar-server-ten.vercel.app/usedphones/${params.category}`),
                 element: <ProductByCategory></ProductByCategory>
             },
             {
                 path: '/phone/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/phone/${params.id}`),
+                loader: ({params}) => fetch(`https://puran-bazar-server-ten.vercel.app/phone/${params.id}`),
                 element: <PrivetRoute><SingleProductCard></SingleProductCard></PrivetRoute>
             },
             {

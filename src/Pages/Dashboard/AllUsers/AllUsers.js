@@ -7,7 +7,7 @@ const AllUsers = () => {
     const {data: users = [], refetch, isLoading} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`);
+            const res = await fetch(`https://puran-bazar-server-ten.vercel.app/users`);
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const AllUsers = () => {
     const handleVerfiyUser = (id) => {
         const permission = window.confirm('Are you sure to verify this user?');
         if(permission){
-            fetch(`http://localhost:5000/users?id=${id}`, {
+            fetch(`https://puran-bazar-server-ten.vercel.app/users?id=${id}`, {
                 method: "PUT"
             })
             .then(res => res.json())
@@ -38,7 +38,7 @@ const AllUsers = () => {
     const handleDeleteUser = id =>{
         const permission = window.confirm('On delete user this can not be undone');
         if(permission){
-            fetch(`http://localhost:5000/users?id=${id}`, {
+            fetch(`https://puran-bazar-server-ten.vercel.app/users?id=${id}`, {
                 method: "DELETE"
             })
             .then(res => res.json())

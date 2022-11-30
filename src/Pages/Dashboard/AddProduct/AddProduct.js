@@ -74,7 +74,7 @@ const AddProduct = () => {
 
                 if(confirmation) {
                     //Add new product with post method
-                fetch('http://localhost:5000/usedphones', {
+                fetch('https://puran-bazar-server-ten.vercel.app/usedphones', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

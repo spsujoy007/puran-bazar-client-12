@@ -23,7 +23,7 @@ const SingleProductCard = () => {
           phone: form.phone.value,
           location: form.location.value
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://puran-bazar-server-ten.vercel.app/orders', {
           method: 'POST',
           headers: {
             'content-type': "application/json"
@@ -41,7 +41,7 @@ const SingleProductCard = () => {
       const handleReportProduct = id => {
         const permission = window.confirm(`Are you report ${name}`);
         if(permission){
-          fetch(`http://localhost:5000/usedphones?id=${id}`, {
+          fetch(`https://puran-bazar-server-ten.vercel.app/usedphones?id=${id}`, {
             method: "PUT"
           })
           .then(res => res.json())
@@ -55,7 +55,7 @@ const SingleProductCard = () => {
 
       const [isVerfied, setIsVerfied] = useState(null);
       useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://puran-bazar-server-ten.vercel.app/users`)
         .then(res => res.json())
         .then(data => setIsVerfied(data))
       }, [isVerfied]);
